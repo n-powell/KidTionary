@@ -27,3 +27,10 @@ post('/word') do
   word.save()
   erb(:allwords)
 end
+
+get('/word/:id') do
+  dictionary_word = Words.find(params.fetch("id"))
+  dictionary_word_definition = params.fetch('dictionary_word_definition')
+  @word = Words.find(params.fetch("id").to_i)
+  erb(:word)
+end
